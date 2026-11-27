@@ -1,0 +1,21 @@
+{
+  "name": "presentation-env (Slidev)",
+  "build": {
+    "dockerfile": "../Dockerfile",
+    "context": ".."
+  },
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "overrideCommand": true,
+  "forwardPorts": [3030],
+  "portsAttributes": {
+    "3030": {
+      "label": "Slidev",
+      "onAutoForward": "openBrowser"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["antfu.slidev"]
+    }
+  }
+}

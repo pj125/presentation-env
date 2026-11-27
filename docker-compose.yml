@@ -1,0 +1,13 @@
+services:
+  slidev:
+    build: .
+    image: presentation-env-slidev
+    ports:
+      - "${SLIDEV_PORT:-3030}:3030"
+    volumes:
+      - ./presentations:/presentations
+    # Select the presentation to serve: PRESENTATION=<name> docker compose up
+    working_dir: /presentations/${PRESENTATION:-example}
+    environment:
+      # Use polling so file changes on mounted volumes are picked up on all hosts
+      - CHOKIDAR_USEPOLLING=true
